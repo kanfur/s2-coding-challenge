@@ -3,28 +3,13 @@
 {% block title %}Post{% endblock %}
 
 {% block body %}
-    <h1>Post</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Title</th>
-                <td>{{ post.title }}</td>
-            </tr>
-            <tr>
-                <th>Text</th>
-                <td>{{ post.text }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ post.date ? post.date|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Deleted</th>
-                <td>{{ post.deleted ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <h2>{{ post.date ? post.date|date('Y-m-d') : '' }}</h2>
+        <h5>{{ post.title }}</h5>
+        <div class="row"><img src=""/></div>
+        <p>{{ post.text }}</p>
+        <p>Autor: {{ post.author.username }}</p>
+    </div>
 
     {{ form_start(comment) }}
         {{ form_widget(comment) }}
