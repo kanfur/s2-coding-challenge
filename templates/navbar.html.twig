@@ -3,10 +3,13 @@
         <div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="assers">Überschit</a>
+                    <a class="nav-link js-scroll-trigger" href="{{ path('post_index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#services">Neuer Eintrag</a>
+                    <a class="nav-link js-scroll-trigger" href="{{ path('admin_index') }}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ path('rss') }}" target="_blank">RSS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="{{ path('imprint') }}">Impressum</a>
