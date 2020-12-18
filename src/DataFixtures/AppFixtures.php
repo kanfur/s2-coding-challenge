@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
+use App\Entity\IpBlock;
 use App\Entity\Post;
 use App\Entity\User;
 use DateTime;
@@ -47,6 +48,10 @@ final class AppFixtures extends Fixture
                 new DateTime()
             ));
         }
+
+        $ip = new IpBlock('127.10.10.10');
+
+        $manager->persist($ip);
 
         $manager->flush();
     }
