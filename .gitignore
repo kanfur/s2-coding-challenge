@@ -8,3 +8,12 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> ignore deployment related files ###
+/etc/*/*.ini.local
+/etc/*/*.cron
+/etc/*/*.conf
+/etc/*/*.sh
+/etc/*/*.yaml
+/etc/*/*.json
+####< ignore deployment related files ###

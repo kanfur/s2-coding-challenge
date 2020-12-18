@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
+        "shopping/deployer-recipes": "^2.0",
         "symfony/console": "5.2.*",
         "symfony/dotenv": "5.2.*",
         "symfony/flex": "^1.3.1",
@@ -52,7 +53,19 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "build:clean": [
+            "@cache:remove",
+            "@composer:remove"
+        ],
+        "build:prepare": "@composer install --no-interaction --ignore-platform-reqs",
+        "build:build": "@php vendor/bin/dep build",
+        "build": [
+            "@build:clean",
+            "@build:prepare",
+            "@build:build"
+        ],
+        "deploy" : "@php vendor/bin/dep -vv deploy"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -62,5 +75,11 @@
             "allow-contrib": false,
             "require": "5.2.*"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.ch24.de"
+        }
+    ]
 }
