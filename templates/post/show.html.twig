@@ -15,41 +15,37 @@
         <p>Autor: {{ post.author.username }}</p>
     </div>
 
-    <script>
-        $(function(){
-            $("#rating").rating({min:1, max:5, step:1, size:'lg'});
-        })
-    </script>
+    <h3>Raiting {{ post.rate.rating }} ({{ post.rate.numberOfVotes }})</h3>
 
-    <input id="rating">
-
+    Comment
     {{ form_start(comment) }}
         {{ form_widget(comment) }}
         <button class="btn btn-primary">{{ submit_label|default('Comment') }}</button>
     {{ form_end(comment) }}
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>User</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for comment in post.comments %}
+    {% if post.comments.count > 0 %}
+        <table class="table">
+            <thead>
             <tr>
-                <td>
-                    {{ comment.name }} @ {{ comment.email }}
-                    <br />
-                    <b>said @ {{ comment.date|date('d.m.Y H:i') }}:</b> {{ comment.text }}
-                </td>
+                <th>User</th>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Make the first comment</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for comment in post.comments %}
+                <tr>
+                    <td>
+                        {{ comment.name }} @ {{ comment.email }}
+                        <br />
+                        <b>said @ {{ comment.date|date('d.m.Y H:i') }}:</b> {{ comment.text }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+       Make the first comment
+        <br />
+    {% endif %}
 
     <a href="{{ path('post_index') }}">back to list</a>
 {% endblock %}

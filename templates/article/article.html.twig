@@ -7,13 +7,14 @@
                 <div class="col-8 col-md-8">
                     Autor: {{ article.author.username }}
                 </div>
+                <div class="col-8 col-md-8">
+                    Rating: {{ article.rate.rating }} ({{ article.rate.numberOfVotes }})
+                </div>
                 <div class="col-8 col-md-4">
-                    Kommentare: {{ article.comments|length }}
+                    Comments: {{ article.comments|length }}
                 </div>
             </div>
         </div>
         <div class="col-2 col-md-2" onclick="window.location=('{{ path('post_detail', { 'slug': article.slug }) }}')"><img src=""/></div>
     </div>
-
-
 </div>
