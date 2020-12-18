@@ -67,6 +67,11 @@ class Post implements ItemInterface
     private ?DateTimeInterface $date;
 
     /**
+     * @ORM\OneToOne(targetEntity=Rate::class, inversedBy="post")
+     */
+    private ?Rate $rate;
+
+    /**
      * @ORM\Column(type="boolean", options={"default":"0"})
      */
     private bool $deleted = false;
@@ -178,6 +183,15 @@ class Post implements ItemInterface
         $this->deleted = $deleted;
 
         return $this;
+    }
+
+    public function getRate(): Rate
+    {
+        if ($this->rate === null) {
+            $this->rate = new Rate($this);
+        }
+
+        return $this->rate;
     }
 
     public function slug(): string
