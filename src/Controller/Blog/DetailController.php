@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Blog;
 
 use App\Form\CommentType;
+use App\Form\RateType;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,9 +25,16 @@ final class DetailController extends AbstractController
             ])
         ]);
 
+        $rating = $this->createForm(RateType::class, options: [
+            'action' => $this->generateUrl('post_rate', [
+                "id" => $post->getId()
+            ])
+        ]);
+
         return $this->render('post/show.html.twig', [
             'post' => $post,
-            'comment' => $comment->createView()
+            'comment' => $comment->createView(),
+            'rating' => $rating->createView()
         ]);
     }
 }

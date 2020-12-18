@@ -17,6 +17,11 @@
 
     <h3>Raiting {{ post.rate.rating }} ({{ post.rate.numberOfVotes }})</h3>
 
+    {{ form_start(rating) }}
+        {{ form_widget(rating) }}
+        <button class="btn btn-primary">{{ submit_label|default('Rate') }}</button>
+    {{ form_end(rating) }}
+
     Comment
     {{ form_start(comment) }}
         {{ form_widget(comment) }}
