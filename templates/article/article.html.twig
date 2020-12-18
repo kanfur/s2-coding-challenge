@@ -1,0 +1,19 @@
+<div class="card border-light mb-3">
+    <div class="font-weight-bold text-left" style="padding: 10px;">{{ article.date | date('Y-m-d H:i:s') }} - {{ article.title }}</div>
+    <div class="row">
+        <div class="col-10 col-md-10">
+            <div class="row">
+                <p class="font-weight-normal" onclick="">{{ article.text|textify  }}</p>
+                <div class="col-8 col-md-8">
+                    Autor: {{ article.author.username }}
+                </div>
+                <div class="col-8 col-md-4">
+                    Kommentare: {{ article.comments|length }}
+                </div>
+            </div>
+        </div>
+        <div class="col-2 col-md-2"><img src=""/></div>
+    </div>
+
+
+</div>
