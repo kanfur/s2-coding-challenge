@@ -30,6 +30,34 @@
         </tbody>
     </table>
 
+    {{ form_start(comment) }}
+        {{ form_widget(comment) }}
+        <button class="btn btn-primary">{{ submit_label|default('Comment') }}</button>
+    {{ form_end(comment) }}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>User</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for comment in post.comments %}
+            <tr>
+                <td>
+                    {{ comment.name }} @ {{ comment.email }}
+                    <br />
+                    <b>said @ {{ comment.date|date('d.m.Y H:i') }}:</b> {{ comment.text }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Make the first comment</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <a href="{{ path('admin_post_index') }}">back to list</a>
 
     <a href="{{ path('admin_post_edit', {'id': post.id}) }}">edit</a>

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Blog;
 
+use App\Form\CommentType;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,15 @@ class DetailController extends AbstractController
     {
         $post = $repository->detail($slug) ?: throw new NotFoundHttpException();
 
-        return $this->render('post/show.html.twig', ['post' => $post]);
+        $comment = $this->createForm(CommentType::class, options: [
+            'action' => $this->generateUrl('post_comment', [
+                "id" => $post->getId()
+            ])
+        ]);
+
+        return $this->render('post/show.html.twig', [
+            'post' => $post,
+            'comment' => $comment->createView()
+        ]);
     }
 }
