@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Controller;
+declare(strict_types=1);
+
+namespace App\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminController extends AbstractController
+#[Route(path: '/admin', name: 'admin_index')]
+final class AdminController extends AbstractController
 {
-    #[Route(path: '/admin', name: 'admin_index')]
+    #[Route(path: '/', name: 'admin_index')]
     public function index(): Response
     {
         return new Response('Hello World');
