@@ -14,7 +14,9 @@
 <body>
 {% include "header.html.twig" %}
 {% include "navbar.html.twig" %}
+<div class="container">
 {% block body %}{% endblock %}
+</div>
 {% block javascripts %}
     <script src="{{ asset('build/js/app.js') }}"></script>
 {% endblock %}
