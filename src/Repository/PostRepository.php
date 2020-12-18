@@ -34,7 +34,7 @@ final class PostRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('post');
         $qb->setMaxResults(1);
-        $qb->andWhere('post.slug', ':slug');
+        $qb->andWhere('post.slug = :slug');
         $qb->setParameter('slug', $slug);
 
         return $qb->getQuery()->getOneOrNullResult();

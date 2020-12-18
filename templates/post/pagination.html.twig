@@ -9,6 +9,9 @@
         <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>
             {{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}
         </th>
+        <th>
+            Data
+        </th>
         <th{% if pagination.isSorted(['a.date', 'a.time']) %} class="sorted"{% endif %}>
             {{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}
         </th>
@@ -17,9 +20,10 @@
     {# table body #}
     {% for article in pagination %}
         <tr {% if loop.index is odd %}class="color"{% endif %}>
-            <td>{{ article.id }}</td>
+            <td><a href="{{ path('post_detail', {slug: article.slug}) }}">{{ article.id }}</a></td>
             <td>{{ article.title }}</td>
-            <td>{{ article.date | date('Y-m-d') }}, {{ article.time | date('H:i:s') }}</td>
+            <td>{{ article.text|textify }}</td>
+            <td>{{ article.date | date('Y-m-d H:i:s') }}</td>
         </tr>
     {% endfor %}
 </table>

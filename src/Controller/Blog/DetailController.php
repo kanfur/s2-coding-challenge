@@ -15,6 +15,6 @@ class DetailController extends AbstractController
     {
         $post = $repository->detail($slug) ?: throw new NotFoundHttpException();
 
-        return $this->render('post/detail.html.twig', ['post' => $post]);
+        return $this->render('post/show.html.twig', ['post' => $post]);
     }
 }

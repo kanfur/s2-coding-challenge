@@ -10,12 +10,13 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Eko\FeedBundle\Item\Writer\ItemInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
  */
-class Post
+class Post implements ItemInterface
 {
     /**
      * @ORM\Id
@@ -78,7 +79,7 @@ class Post
     ) {
         $this->title = $title;
         $this->text = $text;
-        $this->slug = Slugfy::create($text);
+        $this->slug = Slugfy::create($title);
         $this->author = $author;
         $this->date = $date;
         $this->comments = new ArrayCollection();
@@ -97,8 +98,7 @@ class Post
     public function setTitle(string $title): self
     {
         $this->title = $title;
-        $this->slug = Slugfy::create($text);
-
+        $this->slug = Slugfy::create($title);
         return $this;
     }
 
@@ -178,5 +178,30 @@ class Post
         $this->deleted = $deleted;
 
         return $this;
+    }
+
+    public function slug(): string
+    {
+        return $this->slug;
+    }
+
+    public function getFeedItemTitle()
+    {
+        return $this->title;
+    }
+
+    public function getFeedItemDescription()
+    {
+        return $this->text;
+    }
+
+    public function getFeedItemLink()
+    {
+        return null;
+    }
+
+    public function getFeedItemPubDate()
+    {
+        return $this->date;
     }
 }
