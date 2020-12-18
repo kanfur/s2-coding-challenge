@@ -18,7 +18,7 @@ final class PostController extends AbstractController
     #[Route('/', name: 'admin_post_index', methods: ['GET'])]
     public function index(PostRepository $postRepository): Response
     {
-        return $this->render('post/index.html.twig', [
+        return $this->render('admin/post/index.html.twig', [
             'posts' => $postRepository->findAll(),
         ]);
     }
@@ -35,10 +35,10 @@ final class PostController extends AbstractController
             $entityManager->persist($post);
             $entityManager->flush();
 
-            return $this->redirectToRoute('post_index');
+            return $this->redirectToRoute('admin_post_index');
         }
 
-        return $this->render('post/new.html.twig', [
+        return $this->render('admin/post/new.html.twig', [
             'post' => $post,
             'form' => $form->createView(),
         ]);
@@ -47,7 +47,7 @@ final class PostController extends AbstractController
     #[Route('/{id}', name: 'admin_post_show', methods: ['GET'])]
     public function show(Post $post): Response
     {
-        return $this->render('post/show.html.twig', [
+        return $this->render('admin/post/show.html.twig', [
             'post' => $post,
         ]);
     }
@@ -61,10 +61,10 @@ final class PostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('post_index');
+            return $this->redirectToRoute('admin_post_index');
         }
 
-        return $this->render('post/edit.html.twig', [
+        return $this->render('admin/post/edit.html.twig', [
             'post' => $post,
             'form' => $form->createView(),
         ]);
@@ -79,6 +79,6 @@ final class PostController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('post_index');
+        return $this->redirectToRoute('admin_post_index');
     }
 }

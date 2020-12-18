@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Post index{% endblock %}
 
@@ -25,8 +25,8 @@
                 <td>{{ post.date ? post.date|date('Y-m-d') : '' }}</td>
                 <td>{{ post.deleted ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
+                    <a href="{{ path('admin_post_show', {'id': post.id}) }}">show</a>
+                    <a href="{{ path('admin_post_edit', {'id': post.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('post_new') }}">Create new</a>
+    <a href="{{ path('admin_post_new') }}">Create new</a>
 {% endblock %}
