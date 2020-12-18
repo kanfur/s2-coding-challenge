@@ -41,4 +41,11 @@ class IpBlock
     {
         return $this->ip;
     }
+
+    public function setIp(string $ip): self
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
 }
