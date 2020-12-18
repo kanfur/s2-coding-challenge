@@ -9,7 +9,6 @@
             "branch": "master",
             "version": "1.2",
             "ref": "18200f71f86a12023fcd952546dad61850806c22"
-        }
         },
         "files": [
             "config/packages/eko_feed.yaml"
@@ -24,6 +23,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v5.4.2"
     },
+    "monolog/monolog": {
+        "version": "2.2.0"
+    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -36,17 +38,53 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "symfony/debug-bundle": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "f8863cbad2f2e58c4b65fa1eac892ab189971bea"
+        },
+        "files": [
+            "config/packages/dev/debug.yaml"
+        ]
+    },
+    "symfony/debug-pack": {
+        "version": "v1.0.9"
+    },
     "symfony/form": {
         "version": "v5.2.0"
     },
     "symfony/intl": {
         "version": "v5.2.0"
     },
+    "symfony/monolog-bridge": {
+        "version": "v5.2.0"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "d7249f7d560f6736115eee1851d02a65826f0a56"
+        },
+        "files": [
+            "config/packages/dev/monolog.yaml",
+            "config/packages/prod/deprecations.yaml",
+            "config/packages/prod/monolog.yaml",
+            "config/packages/test/monolog.yaml"
+        ]
+    },
     "symfony/options-resolver": {
         "version": "v5.2.0"
     },
     "symfony/polyfill-intl-icu": {
         "version": "v1.20.0"
+    },
+    "symfony/profiler-pack": {
+        "version": "v1.0.5"
     },
     "symfony/translation": {
         "version": "3.3",
@@ -59,6 +97,20 @@
         "files": [
             "config/packages/translation.yaml",
             "translations/.gitignore"
+        ]
+    },
+    "symfony/web-profiler-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "6bdfa1a95f6b2e677ab985cd1af2eae35d62e0f6"
+        },
+        "files": [
+            "config/packages/dev/web_profiler.yaml",
+            "config/packages/test/web_profiler.yaml",
+            "config/routes/dev/web_profiler.yaml"
         ]
     },
     "zendframework/zend-escaper": {

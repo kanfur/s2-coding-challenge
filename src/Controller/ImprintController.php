@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ImprintController extends AbstractController
+final class ImprintController extends AbstractController
 {
     #[Route('/imprint', name: 'imprint')]
     public function action(ImprintRepository $repository): Response

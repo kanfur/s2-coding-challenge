@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Controller\Blog;
 
@@ -9,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DetailController extends AbstractController
+final class DetailController extends AbstractController
 {
     #[Route('/detail/{slug}', name: 'post_detail')]
     public function action(PostRepository $repository, string $slug): Response

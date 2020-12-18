@@ -6,7 +6,7 @@ use App\Service\Textify;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class TextifyExtension extends AbstractExtension
+final class TextifyExtension extends AbstractExtension
 {
     public function getFilters(): array
     {

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Controller\Blog;
 
@@ -11,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use DateTimeImmutable;
 
-class CommentController extends AbstractController
+final class CommentController extends AbstractController
 {
     #[Route('/post/comment/{id}', name: 'post_comment', methods: ["POST"] )]
     public function action(Post $post, Request $request): Response

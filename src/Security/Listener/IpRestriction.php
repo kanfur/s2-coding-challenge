@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Security\Listener;
 
 use App\Entity\User;
@@ -7,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class IpRestriction
+final class IpRestriction
 {
     private TokenStorageInterface $token;
     private IpBlockRespository $repository;

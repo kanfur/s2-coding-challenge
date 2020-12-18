@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Controller\Blog;
 
@@ -9,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class RateController extends AbstractController
+final class RateController extends AbstractController
 {
     #[Route('/post/rate/{id}', name: 'post_rate', methods: ["GET"] )]
     public function action(RateRepository $repository, Post $post, Request $request): Response
