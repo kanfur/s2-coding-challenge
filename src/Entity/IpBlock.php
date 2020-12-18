@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\IpBlockRespository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=IpBlockRepository::class)
+ * @ORM\Entity(repositoryClass=IpBlockRespository::class)
  */
 class IpBlock
 {
