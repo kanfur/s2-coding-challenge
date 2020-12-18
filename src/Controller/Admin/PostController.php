@@ -5,16 +5,27 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
+use App\Entity\User;
 use App\Form\PostType;
 use App\Repository\PostRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
+
 
 #[Route('/admin/posts')]
 final class PostController extends AbstractController
 {
+    private Security $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
     #[Route('/', name: 'admin_post_index', methods: ['GET'])]
     public function index(PostRepository $postRepository): Response
     {
@@ -26,7 +37,9 @@ final class PostController extends AbstractController
     #[Route('/new', name: 'admin_post_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
-        $post = new Post();
+        /** @var User $user */
+        $user = $this->security->getUser();
+        $post = new Post('', '', $user, new DateTime());
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
@@ -73,7 +86,7 @@ final class PostController extends AbstractController
     #[Route('/{id}', name: 'admin_post_delete', methods: ['DELETE'])]
     public function delete(Request $request, Post $post): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$post->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $post->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($post);
             $entityManager->flush();
