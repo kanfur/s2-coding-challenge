@@ -76,7 +76,9 @@
             "@build:prepare",
             "@build:build"
         ],
-        "deploy" : "@php vendor/bin/dep -vv deploy"
+        "deploy" : "@php vendor/bin/dep -vv deploy",
+        "fe:install": "npm install",
+        "fe:build": "npm run build"
     },
     "conflict": {
         "symfony/symfony": "*"
