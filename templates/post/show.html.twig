@@ -5,7 +5,11 @@
 {% block body %}
     <div class="row">
         <h2>{{ post.date ? post.date|date('Y-m-d') : '' }}</h2>
+    </div>
+    <div class="row">
         <h5>{{ post.title }}</h5>
+    </div>
+    <div class="row">
         <div class="row"><img src=""/></div>
         <p>{{ post.text }}</p>
         <p>Autor: {{ post.author.username }}</p>
