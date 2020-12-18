@@ -7,14 +7,13 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import './styles/star-rating.min.css';
 
 // start the Stimulus application
 import './bootstrap';
 
-import Vue from 'vue';
-import App from './js/components/App';
+import * as _jquery from '../node_modules/jquery';
 
-new Vue({
-    el: '#app',
-    components: {App}
-});
+import * as rating from './js/star-rating.min.js';
+
+
