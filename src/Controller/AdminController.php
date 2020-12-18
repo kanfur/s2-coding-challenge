@@ -11,6 +11,6 @@ class AdminController extends AbstractController
     #[Route(path: '/admin', name: 'admin_index')]
     public function index(): Response
     {
-        return new Response();
+        return new Response('Hello World');
     }
 }

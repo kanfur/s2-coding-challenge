@@ -15,20 +15,21 @@ security:
             security: false
 
         login:
-            anonymous: true
-            pattern: ^/login
-            stateless: true
+            anonymous: lazy
+            pattern: ^/
             guard:
                 authenticator: App\Security\Firewall\AdminAuthenticator
             provider: doctrine_user_provider
+            logout:
+                path: logout
+                target: login
 
         restricted:
-            pattern: ^/admin/(.*)
-            stateless: true
+            anonymous: lazy
+            pattern: ^/admin
             guard:
                 authenticator: App\Security\Firewall\AdminAuthenticator
             provider: doctrine_user_provider
 
     access_control:
-        - { path: ^/(.*), roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin(.*), roles: ROLE_ADMIN }

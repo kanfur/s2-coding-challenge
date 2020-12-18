@@ -48,6 +48,20 @@ class User implements UserInterface
      */
     private string $email;
 
+    public function __construct(
+        string $username,
+        string $firstname,
+        string $lastname,
+        string $email,
+        array $roles,
+    ) {
+        $this->username = $username;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->roles = $roles;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,7 +72,17 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        return array_unique($this->roles + ['ROLE_USER']);
+        return array_unique(array_merge($this->roles, ['ROLE_USER']));
+    }
+
+    public function email(): string
+    {
+        return $this->email;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
     }
 
     public function getPassword()
@@ -78,6 +102,5 @@ class User implements UserInterface
 
     public function eraseCredentials(): void
     {
-        return;
     }
 }
