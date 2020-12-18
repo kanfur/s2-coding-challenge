@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use App\Service\Slugfy;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -35,6 +36,11 @@ class Post
      * @ORM\Column(type="string", length=255)
      */
     private ?string $title;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private ?string $slug;
 
     /**
      * @Assert\NotBlank(message="post.text.NotBlank")
@@ -72,6 +78,7 @@ class Post
     ) {
         $this->title = $title;
         $this->text = $text;
+        $this->slug = Slugfy::create($text);
         $this->author = $author;
         $this->date = $date;
         $this->comments = new ArrayCollection();
@@ -90,6 +97,7 @@ class Post
     public function setTitle(string $title): self
     {
         $this->title = $title;
+        $this->slug = Slugfy::create($text);
 
         return $this;
     }

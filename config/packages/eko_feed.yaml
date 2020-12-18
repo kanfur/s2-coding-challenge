@@ -1,0 +1,9 @@
+# Full configuration: https://github.com/eko/FeedBundle
+eko_feed:
+    feeds:
+        posts:
+            title:       'Checkout Post'
+            description: 'Latest articles'
+            link:        'http://s2-challenge-checkout.shopping.test/'
+            encoding:    'utf-8'
+            author:      'Jonatas, Wiem and Diego'

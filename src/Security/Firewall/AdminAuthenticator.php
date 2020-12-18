@@ -57,15 +57,14 @@ final class AdminAuthenticator extends AbstractFormLoginAuthenticator implements
     {
         $token = new CsrfToken('authenticate', $credentials->token());
 
-        if (!$this->csrfTokenManager->isTokenValid($token)) {
-            throw new InvalidCsrfTokenException();
-        }
+        !$this->csrfTokenManager->isTokenValid($token) ?: throw new InvalidCsrfTokenException();
 
         $user = $this->userProvider->loadUserByUsername($credentials->email());
 
         if (!$user) {
             $ex = new UsernameNotFoundException();
             $ex->setUsername($credentials->email());
+            throw $ex;
         }
 
         return $user;
@@ -83,7 +82,9 @@ final class AdminAuthenticator extends AbstractFormLoginAuthenticator implements
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey): RedirectResponse
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
+        $targetPath = $this->getTargetPath($request->getSession(), $providerKey);
+
+        if ($targetPath) {
             return new RedirectResponse($targetPath);
         }
 

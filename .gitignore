@@ -22,4 +22,5 @@
 /public/build/
 npm-debug.log
 yarn-error.log
+bin/.nvm/
 ###< symfony/webpack-encore-bundle ###
