@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity()
  */
-class User implements UserInterface
+class User implements UserInterface, \Stringable
 {
     /**
      * @ORM\Id
@@ -102,5 +102,10 @@ class User implements UserInterface
 
     public function eraseCredentials(): void
     {
+    }
+
+    public function __toString()
+    {
+        return $this->email;
     }
 }

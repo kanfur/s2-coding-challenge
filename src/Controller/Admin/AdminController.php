@@ -11,9 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(path: '/admin', name: 'admin_index')]
 final class AdminController extends AbstractController
 {
-    #[Route(path: '/', name: 'admin_index')]
-    public function index(): Response
+    public function __invoke(): Response
     {
-        return new Response('Hello World');
+        return $this->render('admin/admin/index.html.twig');
     }
 }
