@@ -57,7 +57,9 @@ final class AdminAuthenticator extends AbstractFormLoginAuthenticator implements
     {
         $token = new CsrfToken('authenticate', $credentials->token());
 
-        !$this->csrfTokenManager->isTokenValid($token) ?: throw new InvalidCsrfTokenException();
+        if (!$this->csrfTokenManager->isTokenValid($token)) {
+            throw new InvalidCsrfTokenException();
+        }
 
         $user = $this->userProvider->loadUserByUsername($credentials->email());
 
@@ -88,7 +90,7 @@ final class AdminAuthenticator extends AbstractFormLoginAuthenticator implements
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->generator->generate('admin_index'));
+        return new RedirectResponse($this->generator->generate('post_index'));
     }
 
     protected function getLoginUrl(): string
