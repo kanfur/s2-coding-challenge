@@ -21,7 +21,7 @@ class Post
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @Assert\NotBlank(message="post.title.NotBlank")
@@ -34,38 +34,46 @@ class Post
      *
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @Assert\NotBlank(message="post.text.NotBlank")
      *
      * @ORM\Column(type="text")
      */
-    private $text;
+    private ?string $text;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post", orphanRemoval=true)
      */
-    private $comments;
+    private Collection $comments;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Author;
+    private ?User $author;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $date;
+    private ?DateTimeInterface $date;
 
     /**
      * @ORM\Column(type="boolean", options={"default":"0"})
      */
-    private $deleted;
+    private bool $deleted = false;
 
-    public function __construct()
-    {
+    public function __construct(
+        string $title,
+        string $text,
+        User $author,
+        DateTimeInterface $date
+    ) {
+        $this->title = $title;
+        $this->text = $text;
+        $this->author = $author;
+        $this->date = $date;
         $this->comments = new ArrayCollection();
     }
 
@@ -130,12 +138,12 @@ class Post
 
     public function getAuthor(): ?User
     {
-        return $this->Author;
+        return $this->author;
     }
 
-    public function setAuthor(?User $Author): self
+    public function setAuthor(?User $author): self
     {
-        $this->Author = $Author;
+        $this->author = $author;
 
         return $this;
     }
