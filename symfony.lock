@@ -1,99 +1,27 @@
 {
-    "deployer/deployer": {
-        "version": "v6.8.0"
+    "symfony/asset": {
+        "version": "v5.2.0"
     },
-    "deployer/phar-update": {
-        "version": "v2.2.0"
-    },
-    "deployer/recipes": {
-        "version": "6.2.2"
-    },
-    "egulias/email-validator": {
-        "version": "2.1.24"
-    },
-    "guzzlehttp/guzzle": {
-        "version": "6.5.5"
-    },
-    "guzzlehttp/promises": {
-        "version": "1.4.0"
-    },
-    "guzzlehttp/psr7": {
-        "version": "1.7.0"
-    },
-    "nikic/php-parser": {
-        "version": "v4.10.3"
-    },
-    "pimple/pimple": {
-        "version": "v3.3.1"
-    },
-    "psr/http-message": {
-        "version": "1.0.1"
-    },
-    "ralouphie/getallheaders": {
-        "version": "3.0.3"
-    },
-    "sensiolabs/consul-php-sdk": {
-        "version": "v3.1.1"
-    },
-    "shopping/deployer-recipes": {
-        "version": "2.0.11"
-    },
-    "symfony/maker-bundle": {
-        "version": "1.0",
+    "symfony/webpack-encore-bundle": {
+        "version": "1.6",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "1.0",
-            "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
-        }
-    },
-    "symfony/polyfill-intl-idn": {
-        "version": "v1.20.0"
-    },
-    "symfony/process": {
-        "version": "v5.2.0"
-    },
-    "symfony/property-access": {
-        "version": "v5.2.0"
-    },
-    "symfony/property-info": {
-        "version": "v5.2.0"
-    },
-    "symfony/security-bundle": {
-        "version": "5.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.1",
-            "ref": "0a4bae19389d3b9cba1ca0102e3b2bccea724603"
+            "version": "1.6",
+            "ref": "f362ed8e8aa99a8cb216e6bdb2ac833dfb7643dd"
         },
         "files": [
-            "config/packages/security.yaml"
-        ]
-    },
-    "symfony/security-core": {
-        "version": "v5.2.0"
-    },
-    "symfony/security-csrf": {
-        "version": "v5.2.0"
-    },
-    "symfony/security-guard": {
-        "version": "v5.2.0"
-    },
-    "symfony/security-http": {
-        "version": "v5.2.0"
-    },
-    "symfony/validator": {
-        "version": "4.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.3",
-            "ref": "d902da3e4952f18d3bf05aab29512eb61cabd869"
-        },
-        "files": [
-            "config/packages/test/validator.yaml",
-            "config/packages/validator.yaml"
+            "assets/app.js",
+            "assets/bootstrap.js",
+            "assets/controllers.json",
+            "assets/controllers/hello_controller.js",
+            "assets/styles/app.css",
+            "config/packages/assets.yaml",
+            "config/packages/prod/webpack_encore.yaml",
+            "config/packages/test/webpack_encore.yaml",
+            "config/packages/webpack_encore.yaml",
+            "package.json",
+            "webpack.config.js"
         ]
     }
 }
