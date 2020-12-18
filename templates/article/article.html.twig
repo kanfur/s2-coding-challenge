@@ -1,5 +1,5 @@
 <div class="card border-light mb-3">
-    <div class="font-weight-bold text-left" style="padding: 10px;" onclick="window.location=('{{ path('post_detail', { 'slug': article.id }) }}')">{{ article.date | date('Y-m-d H:i:s') }} - {{ article.title }}</div>
+    <div class="font-weight-bold text-left" style="padding: 10px;" onclick="window.location=('{{ path('post_detail', { 'slug': article.slug }) }}')">{{ article.date | date('Y-m-d H:i:s') }} - {{ article.title }}</div>
     <div class="row">
         <div class="col-10 col-md-10">
             <div class="row">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-2 col-md-2" onclick="window.location=('{{ path('post_detail', { 'slug': article.id }) }}')"><img src=""/></div>
+        <div class="col-2 col-md-2" onclick="window.location=('{{ path('post_detail', { 'slug': article.slug }) }}')"><img src=""/></div>
     </div>
 
 
