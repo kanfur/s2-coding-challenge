@@ -1,0 +1,7 @@
+docker-compose build
+docker-compose up -d
+composer install
+npm install
+npm build
+bin/console doctrine:schema:update --force
+bin/console doctrine:fixtures:load
