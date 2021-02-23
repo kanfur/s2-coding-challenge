@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-10 col-md-10">
             <div class="row">
-                <p class="font-weight-normal" onclick="window.location=('{{ path('post_detail', { 'slug': article.slug }) }}')">{{ article.text|textify  }}</p>
+                <p class="font-weight-normal" onclick="window.location=('{{ path('post_detail', { 'slug': article.slug }) }}')">{{ article.text  }}</p>
                 <div class="col-8 col-md-8">
                     Autor: {{ article.author.username }}
                 </div>
