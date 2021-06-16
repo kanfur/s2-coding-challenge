@@ -86,8 +86,8 @@
             "url": "https://satis.ch24.de"
         },
         {
-	    "type": "vcs",
-	    "url": "https://github.com/franmomu/FeedBundle.git"
-	}
+            "type": "vcs",
+            "url": "https://github.com/franmomu/FeedBundle.git"
+        }
     ]
 }

@@ -40,20 +40,6 @@ final class PostRepository extends ServiceEntityRepository
         return $qb->getQuery()->getOneOrNullResult();
     }
 
-    public function rss(int $limit): Feed
-    {
-        $qb = $this->createQueryBuilder('post');
-        $qb->setMaxResults($limit);
-        $qb->addOrderBy('post.date', 'DESC');
-
-        $posts = $qb->getQuery()->getResult();
-
-        $feed = $this->rss->get('posts');
-        $feed->addFromArray($posts);
-
-        return $feed;
-    }
-    
     public function paginate(int $page, int $limit = 3): PaginationInterface
     {
         $qb = $this->createQueryBuilder('post');

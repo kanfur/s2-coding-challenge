@@ -1,7 +1,20 @@
+
+# 1. Start the container
 docker-compose build
 docker-compose up -d
+
+Run `docker ps` to find out the name of your php container, then you can open a bash into your container using:
+```bash
+ docker exec -it {NAME} /bin/bash
+```
+
+# In the container: Initialization
+```bash
 composer install
-npm install
-npm build
 bin/console doctrine:schema:update --force
 bin/console doctrine:fixtures:load
+yarn
+```
+
+# Frontend build
+yarn build
