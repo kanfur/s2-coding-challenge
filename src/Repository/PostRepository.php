@@ -20,13 +20,11 @@ use Knp\Component\Pager\PaginatorInterface;
  */
 final class PostRepository extends ServiceEntityRepository
 {
-    private FeedManager $rss;
     private PaginatorInterface $paginator;
 
-    public function __construct(ManagerRegistry $registry, FeedManager $rss, PaginatorInterface $paginator)
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Post::class);
-        $this->rss = $rss;
         $this->paginator = $paginator;
     }
 
