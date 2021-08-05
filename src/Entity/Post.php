@@ -10,13 +10,12 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Eko\FeedBundle\Item\Writer\ItemInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
  */
-class Post implements ItemInterface
+class Post
 {
     /**
      * @ORM\Id
@@ -65,11 +64,6 @@ class Post implements ItemInterface
      * @ORM\Column(type="date")
      */
     private ?DateTimeInterface $date;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Rate::class, inversedBy="post")
-     */
-    private ?Rate $rate;
 
     /**
      * @ORM\Column(type="boolean", options={"default":"0"})
@@ -178,44 +172,15 @@ class Post implements ItemInterface
         return $this->deleted;
     }
 
-    public function setDeleted(?bool $deleted): self
+    public function setDeleted(bool $deleted): self
     {
         $this->deleted = $deleted;
 
         return $this;
     }
 
-    public function getRate(): Rate
-    {
-        if ($this->rate === null) {
-            $this->rate = new Rate($this);
-        }
-
-        return $this->rate;
-    }
-
     public function slug(): string
     {
         return $this->slug;
-    }
-
-    public function getFeedItemTitle()
-    {
-        return $this->title;
-    }
-
-    public function getFeedItemDescription()
-    {
-        return $this->text;
-    }
-
-    public function getFeedItemLink()
-    {
-        return null;
-    }
-
-    public function getFeedItemPubDate()
-    {
-        return $this->date;
     }
 }
