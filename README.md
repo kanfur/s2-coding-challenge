@@ -17,4 +17,15 @@ yarn
 ```
 
 # Frontend build
-yarn build
+yarn run dev
+
+# Troubleshooting
+
+#### Already used port 3306 for mysql
+
+- In file:`./docker-compose.yml`
+    - Uncomment the lines 14, 17 and 18
+    - Change the port 3306 to 3307 in lines 16 and 26
+- In file: `./.env`
+    - Change the port 3306 to 3307 in line 34 (DATABASE_URL)
+- Run `docker-compose up -d` to update the container settings

@@ -1,19 +1,16 @@
-<div class="card border-light mb-3">
-    <div class="font-weight-bold text-left">{{ article.date | date('Y-m-d H:i:s') }} - {{ article.title }}</div>
-    <div class="container">
+<div class="card mb-3">
+    <h5 class="card-header">{{ article.date | date('Y-m-d H:i:s') }} - {{ article.title }}</h5>
+    <div class="card-body">
+        <a href="{{ path('post_detail', { 'slug': article.slug }) }}" class="text-decoration-none text-body">{{ article.text  }}</a>
+    </div>
+    <div class="card-footer">
         <div class="row">
-            <div class="col-10 col-md-10">
-                <div class="row">
-                    <p class="font-weight-normal">{{ article.text  }}</p>
-                    <div class="col-8 col-md-8">
-                        Autor: {{ article.author.username }}
-                    </div>
-                    <div class="col-8 col-md-4">
-                        Kommentare: {{ article.comments|length }}
-                    </div>
-                </div>
+            <div class="col">
+                Autor: {{ article.author.username }}
             </div>
-            <div class="col-2 col-md-2"><img src=""/></div>
+            <div class="col text-right">
+                Comments: {{ article.comments|length }}
+            </div>
         </div>
     </div>
 </div>

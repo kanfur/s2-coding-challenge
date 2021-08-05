@@ -1,6 +1,6 @@
 FROM php:8.0-fpm
 
-RUN apt-get update && apt-get install -y libzip-dev libicu-dev && docker-php-ext-install pdo_mysql zip intl
+RUN apt-get update && apt-get install -y libzip-dev libicu-dev && docker-php-ext-install pdo_mysql zip intl opcache && pecl install apcu && docker-php-ext-enable apcu && echo "date.timezone = \"Europe/Berlin\"" >> /usr/local/etc/php/conf.d/timezone.ini
 
 # Install nodejs & yarn
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \

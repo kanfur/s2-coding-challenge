@@ -21,15 +21,6 @@ final class PostController extends AbstractController
     public function postsAction(
         PostRepository $repository
     ): Response {
-        $encoders = [new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
-
-        $serializer = new Serializer($normalizers, $encoders);
-
-        return new JsonResponse(
-            [
-                $serializer->normalize($repository->findAll(), 'json'),
-            ]
-        );
+        // TODO
     }
 }

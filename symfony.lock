@@ -290,6 +290,9 @@
     "symfony/options-resolver": {
         "version": "v5.2.0"
     },
+    "symfony/password-hasher": {
+        "version": "v5.3.4"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.22.1"
     },
