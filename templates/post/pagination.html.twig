@@ -2,15 +2,15 @@
 
 {# table body #}
     {% for article in pagination %}
-      {% include "article/article.html.twig" %}
+            {% include "article/article.html.twig" %}
     {% endfor %}
 {# display navigation #}
 
 <div class="count">
-  Posts: {{ pagination.getTotalItemCount }}
+    Posts: {{ pagination.getTotalItemCount }}
 </div>
 
 {# display navigation #}
 <div class="navigation">
-  {{ knp_pagination_render(pagination) }}
+    {{ knp_pagination_render(pagination) }}
 </div>

@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Rating</th>
                 <th>Title</th>
                 <th>Text</th>
                 <th>Date</th>
@@ -20,6 +21,7 @@
         {% for post in posts %}
             <tr>
                 <td>{{ post.id }}</td>
+                <td>{{ post.rate.rating }} ({{ post.rate.numberOfVotes }})</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.text }}</td>
                 <td>{{ post.date ? post.date|date('Y-m-d') : '' }}</td>

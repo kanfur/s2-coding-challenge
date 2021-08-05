@@ -1,15 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
     <div class="container">
         <div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="{{ path('post_index') }}">Übersicht</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#">[Neuer Eintrag]</a>
+                    <a class="nav-link js-scroll-trigger" href="{{ path('post_index') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="{{ path('admin_index') }}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ path('rss') }}" target="_blank">RSS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="{{ path('imprint') }}">Impressum</a>
@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="{{ path('login') }}">[Login/Logout]</a>
+                    <a class="nav-link js-scroll-trigger" href="{{ path('login') }}">Login/Logout</a>
                 </li>
             </ul>
         </div>

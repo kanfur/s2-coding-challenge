@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -48,11 +47,6 @@ class User implements UserInterface, \Stringable
      * @ORM\Column(type="string", length=255)
      */
     private string $email;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="author", orphanRemoval=true)
-     */
-    private Collection $posts;
 
     public function __construct(
         string $username,

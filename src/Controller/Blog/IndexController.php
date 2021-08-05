@@ -17,8 +17,6 @@ final class IndexController extends AbstractController
     {
         $page = $request->query->getInt('page', 1);
 
-        return $this->render('index.html.twig', [
-            'pagination' => $repository->paginate($page)
-        ]);
+        return $this->render('index.html.twig', ['pagination' => $repository->paginate($page)]);
     }
 }

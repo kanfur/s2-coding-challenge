@@ -3,62 +3,54 @@
 {% block title %}Post{% endblock %}
 
 {% block body %}
-  <div class="card">
-    <div class="card-header">
+    <div class="row">
         <h2>{{ post.date ? post.date|date('Y-m-d') : '' }}</h2>
     </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
-          <h5>{{ post.title }}</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <img src=""/>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
+    <div class="row">
+        <h5>{{ post.title }}</h5>
+    </div>
+    <div class="row">
+        <div class="row"><img src=""/></div>
+        <p>{{ post.text }}</p>
+        <p>Autor: {{ post.author.username }}</p>
+    </div>
 
-          <p>{{ post.text }}</p>
-          <p>Autor: {{ post.author.username }}</p>
-        </div>
-      </div>
+    <h3>Raiting {{ post.rate.rating }} ({{ post.rate.numberOfVotes }})</h3>
 
-      {{ form_start(comment) }}
-      {{ form_widget(comment) }}
-      <button class="btn btn-primary">{{ submit_label|default('Comment') }}</button>
-      {{ form_end(comment) }}
+    {{ form_start(rating) }}
+        {{ form_widget(rating) }}
+        <button class="btn btn-primary">{{ submit_label|default('Rate') }}</button>
+    {{ form_end(rating) }}
 
-      {% if post.comments.count > 0 %}
+    Comment
+    {{ form_start(comment) }}
+        {{ form_widget(comment) }}
+        <button class="btn btn-primary">{{ submit_label|default('Comment') }}</button>
+    {{ form_end(comment) }}
+
+    {% if post.comments.count > 0 %}
         <table class="table">
-          <thead>
-          <tr>
-            <th>User</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for comment in post.comments %}
+            <thead>
             <tr>
-              <td>
-                {{ comment.name }} @ {{ comment.email }}
-                <br/>
-                <b>said @ {{ comment.date|date('d.m.Y H:i') }}:</b> {{ comment.text }}
-              </td>
+                <th>User</th>
             </tr>
-          {% endfor %}
-          </tbody>
+            </thead>
+            <tbody>
+            {% for comment in post.comments %}
+                <tr>
+                    <td>
+                        {{ comment.name }} @ {{ comment.email }}
+                        <br />
+                        <b>said @ {{ comment.date|date('d.m.Y H:i') }}:</b> {{ comment.text }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>
-      {% else %}
-        Make the first comment
-        <br/>
-      {% endif %}
+    {% else %}
+       Make the first comment
+        <br />
+    {% endif %}
 
-    </div>
-    <div class="card-footer">
-      <a href="{{ path('post_index') }}">back to list</a>
-    </div>
-  </div>
-
+    <a href="{{ path('post_index') }}">back to list</a>
 {% endblock %}

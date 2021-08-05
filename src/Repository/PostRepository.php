@@ -7,6 +7,8 @@ namespace App\Repository;
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Eko\FeedBundle\Feed\Feed;
+use Eko\FeedBundle\Feed\FeedManager;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -18,11 +20,13 @@ use Knp\Component\Pager\PaginatorInterface;
  */
 final class PostRepository extends ServiceEntityRepository
 {
+    private FeedManager $rss;
     private PaginatorInterface $paginator;
 
-    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
+    public function __construct(ManagerRegistry $registry, FeedManager $rss, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Post::class);
+        $this->rss = $rss;
         $this->paginator = $paginator;
     }
 
@@ -36,6 +40,20 @@ final class PostRepository extends ServiceEntityRepository
         return $qb->getQuery()->getOneOrNullResult();
     }
 
+    public function rss(int $limit): Feed
+    {
+        $qb = $this->createQueryBuilder('post');
+        $qb->setMaxResults($limit);
+        $qb->addOrderBy('post.date', 'DESC');
+
+        $posts = $qb->getQuery()->getResult();
+
+        $feed = $this->rss->get('posts');
+        $feed->addFromArray($posts);
+
+        return $feed;
+    }
+    
     public function paginate(int $page, int $limit = 3): PaginationInterface
     {
         $qb = $this->createQueryBuilder('post');
