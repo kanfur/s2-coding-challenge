@@ -16,6 +16,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 final class AppFixtures extends Fixture
 {
     private UserPasswordEncoderInterface $encoder;
+    private static int $POSTMINTIME = 1630000000;
+    private static int $POSTMAXTIME = 1630095000;
+
 
     public function __construct(UserPasswordEncoderInterface $encoder)
     {
@@ -45,7 +48,7 @@ final class AppFixtures extends Fixture
                 $faker->realText(50),
                 $faker->realText(2000),
                 $user,
-                new DateTime()
+                (new DateTime())->setTimestamp(rand(self::$POSTMINTIME, self::$POSTMAXTIME))
             ));
         }
 
