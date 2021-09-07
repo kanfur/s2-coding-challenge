@@ -29,9 +29,22 @@ then you can enter the php container
 ```
 
 # Frontend build
-Whenever you have made changes in the frontend, you need to run the build process for this
+Whenever you have made changes in the frontend and thus also after your initialization, you need to run the build process for this
 ```bash
 ❯ yarn encore dev
+```
+
+#Congratulations !
+You have successfully set up your coding challange DEV environment. You can now access the application in your browser
+```bash
+http://localhost
+```
+The application code can be found in the `src` folder. \
+\
+You can access the DB by typing following into your local shell
+```bash
+❯ docker exec -it s2-coding-challenge_mysql_1 /bin/bash
+❯ mysql -u user -ppassword
 ```
 
 # Troubleshooting

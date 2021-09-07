@@ -61,7 +61,7 @@ class Post
     private ?User $author;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private ?DateTimeInterface $date;
 
