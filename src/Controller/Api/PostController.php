@@ -7,6 +7,7 @@ namespace App\Controller\Api;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -19,8 +20,16 @@ final class PostController extends AbstractController
 {
     #[Route('posts.json', name: 'posts', methods: ["GET"])]
     public function postsAction(
-        PostRepository $repository
+        Request $request,
+        PostRepository $repository,
+        SerializerInterface $serializer,
     ): Response {
-        // TODO
+        $response = $repository->paginate(
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 5)
+        )->getItems();
+
+        return $this->json($serializer->normalize($response, 'json'));
     }
 }
+
