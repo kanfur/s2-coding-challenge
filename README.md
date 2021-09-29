@@ -1,8 +1,7 @@
 
 # 1. Start the container
-Build and launch the container. Especially the build process may take a while if your internet connection is slower.
+Download and launch the container. Especially the download process may take a while if your internet connection is slower.
 ```bash
-❯ docker-compose build
 ❯ docker-compose up -d
 ```
 
