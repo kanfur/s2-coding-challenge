@@ -23,7 +23,7 @@ then you can enter the php container
 ```bash
 ❯ composer install
 ❯ bin/console doctrine:schema:update --force
-❯ bin/console doctrine:fixtures:load
+❯ bin/console doctrine:fixtures:load -n
 ❯ yarn install
 ❯ yarn encore dev
 ```
