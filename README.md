@@ -5,17 +5,18 @@ Download and launch the container. Especially the download process may take a wh
 ❯ docker-compose up -d
 ```
 
-Run `docker ps` to find out the name of your php container. It should look like this `s2-coding-challenge_php_1` (name of the folder + php + number of instance) then you can open a bash into your container using:
+Run `docker ps` to find out the name of your php container. It should look like this for docker >= 4.1 `s2-coding-challenge-php-1` (docker < 4.1 `s2-coding-challenge_php_1`) (name of the folder + php + number of instance) then you can open a bash into your container using:
 ```bash
 ❯ docker ps
 CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS                        PORTS                                                        NAMES
-f47293b013a9   s2-coding-challenge_nginx   "/docker-entrypoint.…"   About a minute ago   Up About a minute             0.0.0.0:80->80/tcp, :::80->80/tcp                            s2-coding-challenge_nginx_1
-5f308739b6eb   s2-coding-challenge_php     "docker-php-entrypoi…"   About a minute ago   Up About a minute             9000/tcp                                                     s2-coding-challenge_php_1
-df0c8329609f   mysql/mysql-server:latest   "/entrypoint.sh mysq…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060-33061/tcp   s2-coding-challenge_mysql_1
+f47293b013a9   s2-coding-challenge_nginx   "/docker-entrypoint.…"   About a minute ago   Up About a minute             0.0.0.0:80->80/tcp, :::80->80/tcp                            s2-coding-challenge-nginx-1
+5f308739b6eb   s2-coding-challenge_php     "docker-php-entrypoi…"   About a minute ago   Up About a minute             9000/tcp                                                     s2-coding-challenge-php-1
+df0c8329609f   mysql/mysql-server:latest   "/entrypoint.sh mysq…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060-33061/tcp   s2-coding-challenge-mysql-1
 ```
 then you can enter the php container
 ```bash
 ❯ docker exec -it s2-coding-challenge_php_1 /bin/bash
+❯ cd provider
 ```
 
 
