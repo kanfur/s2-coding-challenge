@@ -6,6 +6,7 @@ services:
     restart: on-failure
     volumes:
       - "dbdata:/var/lib/mysql"
+      - ".:/var/www"
     environment:
       MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DATABASE_NAME}
