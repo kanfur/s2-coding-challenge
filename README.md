@@ -15,7 +15,7 @@ df0c8329609f   mysql/mysql-server:latest   "/entrypoint.sh mysq…"   About a mi
 ```
 then you can enter the php container
 ```bash
-❯ docker exec -it s2-coding-challenge_php_1 /bin/bash
+❯ docker exec -it s2-coding-challenge-php-1 /bin/bash
 ❯ cd provider
 ```
 
