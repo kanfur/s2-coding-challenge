@@ -26,15 +26,15 @@ services:
     links:
       - mysql
     volumes:
-      - ".:/var/www/provider"
+      - ".:/var/www"
 
   nginx:
-    image: pubreg.shopping.check24-test.de/repository/docker-public/nginx:latest
+    image: pubreg.shopping.check24-test.de/repository/docker-public/nginx-default:latest
     restart: on-failure
     depends_on:
       - php
     volumes:
-      - ".:/var/www/provider"
+      - ".:/var/www"
     ports:
       - 80:80
 

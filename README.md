@@ -16,7 +16,6 @@ df0c8329609f   mysql/mysql-server:latest   "/entrypoint.sh mysq…"   About a mi
 then you can enter the php container
 ```bash
 ❯ docker exec -it s2-coding-challenge-php-1 /bin/bash
-❯ cd provider
 ```
 
 
@@ -50,7 +49,7 @@ You can access the DB by typing following into your local shell
 
 # Troubleshooting
 
-##docker container are not starting
+## docker container are not starting
 please shutdown all other projects in docker to avoid using port 80 and 3306. You can run `docker ps` to identify other running containers. Easiest way is to stop then via UI
 
 #### Already used port 3306 for mysql
