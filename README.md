@@ -13,9 +13,9 @@ f47293b013a9   s2-coding-challenge_nginx   "/docker-entrypoint.…"   About a mi
 5f308739b6eb   s2-coding-challenge_php     "docker-php-entrypoi…"   About a minute ago   Up About a minute             9000/tcp                                                     s2-coding-challenge-php-1
 df0c8329609f   mysql/mysql-server:latest   "/entrypoint.sh mysq…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060-33061/tcp   s2-coding-challenge-mysql-1
 ```
-then you can enter the php container
+then you can enter the php container (/bin/ash is not a type. It is alpines shell)
 ```bash
-❯ docker exec -it s2-coding-challenge-php-1 /bin/bash
+❯ docker exec -it s2-coding-challenge-php-1 /bin/ash
 ```
 
 
