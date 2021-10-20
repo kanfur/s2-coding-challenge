@@ -17,7 +17,7 @@ services:
       - 3306
 
   php:
-    image: pubreg.shopping.check24-test.de/repository/docker-public/php:8.0
+    image: pubreg.shopping.check24-test.de/repository/docker-public/alpine-php:8.0
     restart: on-failure
     depends_on:
       - mysql
