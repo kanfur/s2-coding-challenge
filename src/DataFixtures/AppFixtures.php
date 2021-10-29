@@ -43,6 +43,16 @@ final class AppFixtures extends Fixture
 
         $faker = Factory::create();
 
+        $manager->persist(new Post(
+            'This is what a short article should look like!',
+            'A short article should contain everything that is necessary to understand the topic.
+Like in this short article.
+
+It would be great if more people would just write short texts.',
+            $user,
+            (new DateTime())->setTimestamp(1630095001)
+        ));
+
         for ($i = 1; $i <= 10; $i++) {
             $manager->persist(new Post(
                 $faker->realText(50),
