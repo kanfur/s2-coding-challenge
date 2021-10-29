@@ -91,7 +91,7 @@ log.Printf("%+v", err)',
 
         for ($i = 1; $i <= 10; $i++) {
             $manager->persist(new Post(
-                'This is a very long Text',
+                $faker->realText(50),
                 $faker->realText(3000),
                 $user,
                 (new DateTime())->setTimestamp(rand(self::$POSTMINTIME, self::$POSTMAXTIME))
