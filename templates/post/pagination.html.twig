@@ -1,11 +1,5 @@
 {# total items count #}
 
-{# table body #}
-    {% for article in pagination %}
-      {% include "article/article.html.twig" %}
-    {% endfor %}
-{# display navigation #}
-
 <div class="count">
   Posts: {{ pagination.getTotalItemCount }}
 </div>
