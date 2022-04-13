@@ -1,4 +1,7 @@
 {
+    "composer/package-versions-deprecated": {
+        "version": "1.11.99.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -111,17 +114,38 @@
     "laminas/laminas-code": {
         "version": "4.0.0"
     },
-    "laminas/laminas-eventmanager": {
-        "version": "3.3.0"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.1.1"
-    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
     "nikic/php-parser": {
         "version": "v4.10.4"
+    },
+    "phpdocumentor/reflection-common": {
+        "version": "0.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "0.0",
+            "ref": ""
+        }
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "0.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "0.0",
+            "ref": ""
+        }
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "0.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "0.0",
+            "ref": ""
+        }
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -182,9 +206,6 @@
         "files": [
             "config/packages/dev/debug.yaml"
         ]
-    },
-    "symfony/debug-pack": {
-        "version": "v1.0.9"
     },
     "symfony/dependency-injection": {
         "version": "v5.2.3"
@@ -257,9 +278,6 @@
     "symfony/http-kernel": {
         "version": "v5.2.3"
     },
-    "symfony/intl": {
-        "version": "v5.2.0"
-    },
     "symfony/maker-bundle": {
         "version": "1.0",
         "recipe": {
@@ -316,9 +334,6 @@
     },
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
-    },
-    "symfony/profiler-pack": {
-        "version": "v1.0.5"
     },
     "symfony/property-access": {
         "version": "v5.2.3"
@@ -472,5 +487,14 @@
     },
     "twig/twig": {
         "version": "v3.3.0"
+    },
+    "webmozart/assert": {
+        "version": "0.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "0.0",
+            "ref": ""
+        }
     }
 }
