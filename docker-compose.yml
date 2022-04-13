@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   mysql:
+    container_name: check24-coding-challenge-mysql
     image: mysql/mysql-server:latest
     restart: on-failure
     volumes:
@@ -17,6 +18,7 @@ services:
       - 3306
 
   php:
+    container_name: check24-coding-challenge-php
     image: pubreg.shopping.check24-test.de/repository/docker-public/alpine-php:8.0
     restart: on-failure
     depends_on:
@@ -29,6 +31,7 @@ services:
       - ".:/var/www"
 
   nginx:
+    container_name: check24-coding-challenge-nginx
     image: pubreg.shopping.check24-test.de/repository/docker-public/nginx-default:latest
     restart: on-failure
     depends_on:
