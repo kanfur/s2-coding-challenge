@@ -18,6 +18,11 @@ then you can enter the php container (/bin/ash is not a type error. It is alpine
 ❯ docker exec -it check24-coding-challenge-php /bin/ash
 ```
 
+on Linux you might have problems with user permissions so run the command with an additional option 
+
+```bash
+docker exec -it -u $(id -u ${USER}):$(id -g ${USER}) check24-coding-challenge-php /bin/ash
+```
 
 # In the container: Initialization
 ```bash
