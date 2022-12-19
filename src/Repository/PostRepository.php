@@ -42,6 +42,10 @@ final class PostRepository extends ServiceEntityRepository
         $qb->setMaxResults($limit);
         $qb->addOrderBy('post.date', 'DESC');
 
+        $datas = $qb->getQuery();
+        foreach($datas as $data){
+            die(dump($data));
+        }
         return $this->paginator->paginate($qb->getQuery(), $page, $limit);
     }
 }

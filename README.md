@@ -65,3 +65,4 @@ when you can't temporary stop the container, or you have a mysql running directl
 - In file: `./.env`
     - Change the port 3306 to 3307 in line 34 (DATABASE_URL)
 - Run `docker-compose up -d` to update the container settings
+# s2-coding-challenge
